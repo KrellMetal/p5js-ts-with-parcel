@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "label": "start serve",
+      "detail": "parcel",
+      "problemMatcher": [
+        {
+          "pattern": [
+            {
+              "regexp": ".",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": {
+              "regexp": "(.*?)"
+            },
+            "endsPattern": {
+              "regexp": "^.+Built in .*?s"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "end serve",
+      "type": "process",
+      "command": [
+        "${command:workbench.action.tasks.terminate}"
+      ]
+    }
+  ]
+}
